@@ -10,8 +10,7 @@ public class PlayerAnimations : MonoBehaviour {
     private float run;
     private float any;
     private float crouch ;
-    private bool wascrouch = true;
-    private bool crouched = false;
+    
 
     void Start()
     {
