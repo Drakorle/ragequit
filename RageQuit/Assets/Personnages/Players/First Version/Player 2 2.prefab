@@ -1529,14 +1529,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharControl: {fileID: 143863861086256840}
-  Body: {fileID: 4673852186105612}
+  Body: {fileID: 4097170148623572}
   anim: {fileID: 95442061414857884}
   SuperTrail: {fileID: 1314373399019798, guid: 5acbb268c305da040977ca5a6fe26f56, type: 2}
   DJumpTrail: {fileID: 4056152865103164}
   WalkSpeed: 5
   RunSpeed: 5
   SlideTime: 15
-  CrouchSpeed: 2
+  CrouchSpeed: 3
   jumpforce: 10
   gravity: 30
 --- !u!124 &124019519034737420
