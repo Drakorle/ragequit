@@ -29,8 +29,6 @@ public class PlayerMove : MonoBehaviour {
     public float jumpforce = 10f;
     private float jumpVelocity;
     public float gravity = 30f;
-    bool jump = false;
-    bool jumping = false;
 
     // Use this for initialization
     void Awake()
