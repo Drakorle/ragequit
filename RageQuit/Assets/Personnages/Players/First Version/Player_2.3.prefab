@@ -1589,7 +1589,7 @@ MonoBehaviour:
   DJumpTrail: {fileID: 4149584856898980}
   WalkSpeed: 5
   RunSpeed: 5
-  SlideTime: 15
+  SlideTime: 20
   CrouchSpeed: 3
   jumpforce: 10
   gravity: 30

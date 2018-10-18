@@ -135,7 +135,7 @@ public class PlayerMove : MonoBehaviour {
     {
         //Modification de la taille du personnage et reposition du corp graphic
 
-        if (Input.GetKey(KeyCode.A) && WaitingTime >= SlideTime+5)
+        if (Input.GetKey(KeyCode.A) && WaitingTime >= SlideTime)
         {
             if (!crouched)
             {
@@ -152,9 +152,9 @@ public class PlayerMove : MonoBehaviour {
             }
         }
 
-        // Temps d'attente entre deux ctrl 
+        // Temps d'attente entre deux crouch
         // Slide
-        if (WaitingTime < SlideTime + 5)
+        if (WaitingTime < SlideTime )
         {
             WaitingTime += 0.5f;
 
@@ -180,7 +180,7 @@ public class PlayerMove : MonoBehaviour {
         
         //Paramètre d'animation Crouch
 
-        crouched = CharControl.height == 1;
-        anim.SetBool("Crouched", crouched);
+        crouched = CharControl.height == 1 ;
+        anim.SetBool("Crouched", crouched && CharControl.isGrounded);
     }
     }
