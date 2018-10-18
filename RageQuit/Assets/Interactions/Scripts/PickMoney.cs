@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PersoPick : MonoBehaviour {
+public class PickMoney : MonoBehaviour {
 
     public Text ScoreText;
     private int Score;
