@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     //Appel aux Objets du jeu
+    public GameObject Player;
     public CharacterController CharControl;
     public Transform Body;
     public Animator anim;
     public GameObject SuperTrail;
     public Transform DJumpTrail;
     private GameObject Trail;
+    public GameObject SpawnPoint;
+    public int DeathZonePos;
 
     //Basics
     public float WalkSpeed = 4 ;
@@ -42,6 +45,7 @@ public class PlayerMove : MonoBehaviour {
         Crouch();
         MovePlayer();
         Jump();
+        DeathZone();
         
 	}
     void MovePlayer()
@@ -182,5 +186,12 @@ public class PlayerMove : MonoBehaviour {
 
         crouched = CharControl.height == 1 ;
         anim.SetBool("Crouched", crouched && CharControl.isGrounded);
+    }
+    void DeathZone()
+    {
+        if (Player.transform.position.y < DeathZonePos)
+        {
+            Player.transform.position = SpawnPoint.transform.position;
+        }
     }
     }
