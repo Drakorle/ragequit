@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
 
-    public GameObject PlateformeMouvante;
-    public GameObject Player;
     // Use this for initialization
     void Start()
     {
@@ -22,7 +18,7 @@ public class MovePlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.transform.parent = PlateformeMouvante.transform;
+            other.transform.parent = this.transform;
 
         }
     }
