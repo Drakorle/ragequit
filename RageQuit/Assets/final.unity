@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12879,6 +12879,8 @@ MonoBehaviour:
   CameraVerticalSensitivity: 150
   CameraHorizontalSensitivity: 150
   CameraAltRecoverySpeed: 0.2
+  RotationRecoveringSmooth: 10
+  FreeCameraKey: 308
 --- !u!114 &1804401307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12892,8 +12894,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistance: 1
-  MaxDistance: 5
-  Smooth: 10
+  MaxDistance: 10
+  CurrentMaxDistance: 4
+  ZoomModifier: -2
+  CollisionZoomSmooth: 10
   HitDistanceCorrector: 0.85
   LayerToIgnore:
     serializedVersion: 2
@@ -12901,8 +12905,7 @@ MonoBehaviour:
   PlayerView: {fileID: 1936533379}
   ObjectDetector: {fileID: 1901238449}
   ObjectDetectorSize: {x: 0.3, y: 0.3}
-  ObjectDetectorShift: 0.6
-  Distance: 0
+  ObjectDetectorShift: 0
 --- !u!1 &1806856085
 GameObject:
   m_ObjectHideFlags: 0
@@ -13511,7 +13514,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1901238447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1804401304}
