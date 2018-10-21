@@ -7,7 +7,6 @@ public class CameraFollower : MonoBehaviour
 	public float MinClampAngle = -60.0f;
 	public float CameraVerticalSensitivity = 150.0f;
     public float CameraHorizontalSensitivity = 150.0f;
-    public float CameraAltRecoverySpeed = 0.2f;
     public float RotationRecoveringSmooth = 10.0f; //Smooth the speed of camera recovery after alt push
     public KeyCode FreeCameraKey = KeyCode.LeftAlt;
 
@@ -57,10 +56,12 @@ public class CameraFollower : MonoBehaviour
             FollowedPlayer.transform.rotation = Quaternion.Euler(0, rotationY, 0); //player orientation
         }
 
+        Quaternion cameraRotation = Quaternion.Euler(rotationX, rotationY, 0);
+
         if (rotationRecovering)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotationX, rotationY, 0), Time.deltaTime * RotationRecoveringSmooth); //camera orientation
-            if (transform.rotation == Quaternion.Euler(rotationX, rotationY, 0))
+            transform.rotation = Quaternion.Lerp(transform.rotation, cameraRotation, Time.deltaTime * RotationRecoveringSmooth); //camera orientation
+            if (transform.rotation == cameraRotation)
                 rotationRecovering = false;
         }
         else
