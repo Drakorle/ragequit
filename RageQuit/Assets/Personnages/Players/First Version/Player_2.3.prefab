@@ -308,16 +308,6 @@ GameObject:
   - component: {fileID: 114098056477782034}
   - component: {fileID: 114445791573018378}
   - component: {fileID: 143111989991695698}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  - component: {fileID: 114528841864027976}
->>>>>>> parent of cf29035... Merge branch 'master' of https://github.com/Drakorle/ragequit
-=======
->>>>>>> parent of 208822e... res
-=======
->>>>>>> parent of 779f3f8... res
   m_Layer: 9
   m_Name: Player_2.3
   m_TagString: Player
@@ -1848,47 +1838,6 @@ MonoBehaviour:
   CrouchSpeed: 3
   jumpforce: 10
   gravity: 30
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
---- !u!114 &114528841864027976
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1415245088423828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 34
-    i1: 34
-    i2: 106
-    i3: 249
-    i4: 209
-    i5: 69
-    i6: 245
-    i7: 196
-    i8: 250
-    i9: 182
-    i10: 192
-    i11: 225
-    i12: 151
-    i13: 193
-    i14: 185
-    i15: 55
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
->>>>>>> parent of cf29035... Merge branch 'master' of https://github.com/Drakorle/ragequit
-=======
->>>>>>> parent of 208822e... res
-=======
->>>>>>> parent of 779f3f8... res
 --- !u!114 &114539687060472240
 MonoBehaviour:
   m_ObjectHideFlags: 1
