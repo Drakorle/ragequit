@@ -48,11 +48,13 @@ public class ThirdPersonView : MonoBehaviour
         RaycastHit hit = new RaycastHit();
         float distance = CurrentMaxDistance;
 
+        //raycast detection
         if (Physics.Linecast(transform.parent.transform.position, desiredCameraPos, out hit, notIgnoredLayers))
         {
             distance = hit.distance;
         }
 
+        //collider closest-object-to-player detector
         foreach (KeyValuePair<int, Transform> colliderTransform in colliderTransforms)
         {
             Physics.Linecast(transform.parent.transform.position, colliderTransform.Value.position, out hit, notIgnoredLayers);

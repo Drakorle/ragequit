@@ -45,8 +45,8 @@ public class CameraFollower : MonoBehaviour
 		float FinalInputZ = Input.GetAxis("RightStickVertical") + Input.GetAxis("Mouse Y");
 
 		//charge rotations
-		rotationY += (FinalInputX * CameraHorizontalSensitivity) * Time.deltaTime;
-		rotationX += (FinalInputZ * CameraVerticalSensitivity) * Time.deltaTime;
+		rotationY += (FinalInputX * CameraHorizontalSensitivity) * PlayerPrefs.GetFloat("Y_axis_sensitivity") * Time.deltaTime;
+		rotationX += (FinalInputZ * CameraVerticalSensitivity) * PlayerPrefs.GetFloat("X_axis_sensitivity") * Time.deltaTime;
 
 		rotationX = Mathf.Clamp(rotationX, MinClampAngle, MaxClampAngle);
 
