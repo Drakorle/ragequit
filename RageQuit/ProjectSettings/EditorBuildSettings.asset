@@ -7,11 +7,14 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     path: Assets/Scenes/menu.unity
     guid: 1665453b5913650498f8b04c0067d5a3
   - enabled: 1
 >>>>>>> parent of 779f3f8... res
+=======
+>>>>>>> parent of cf29035... Merge branch 'master' of https://github.com/Drakorle/ragequit
     path: Assets/Scenes/level1.unity
     guid: 7e7fade851b5ff64497a2b35d3bcd244
   m_configObjects: {}
