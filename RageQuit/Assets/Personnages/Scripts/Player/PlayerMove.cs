@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMove : MonoBehaviour {
+public class PlayerMove : NetworkBehaviour {
 
     //Appel aux Objets du jeu
     public GameObject Player;
@@ -12,8 +13,13 @@ public class PlayerMove : MonoBehaviour {
     public GameObject SuperTrail;
     public Transform DJumpTrail;
     private GameObject Trail;
-    public GameObject SpawnPoint;
     public int DeathZonePos;
+    public Camera cam;
+    private float horiz;
+    private float vert;
+    private float run;
+    private float any;
+    private float crouch;
 
     //Basics
     public float WalkSpeed = 4 ;
@@ -42,14 +48,22 @@ public class PlayerMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!isLocalPlayer)
+        {
+            cam.enabled = false;
+            return;
+        }
+        
         Crouch();
         MovePlayer();
-        Jump();
+        Animations();
         DeathZone();
+        
         
 	}
     void MovePlayer()
     {
+        
         //Recupération des touches 
         float horiz = Input.GetAxis("Horizontal");
         float run = Input.GetAxis("Run");
@@ -126,12 +140,7 @@ public class PlayerMove : MonoBehaviour {
         CharControl.Move(moveDirUp *Time.deltaTime);
 
     }
-    //Paramètres Animation Jump
-    void Jump()
-    {
-        anim.SetBool("Grounded", CharControl.isGrounded);
-        anim.SetFloat("AirVelocity", jumpVelocity);
-    }
+    
 
 
     //Move Crouch
@@ -182,16 +191,37 @@ public class PlayerMove : MonoBehaviour {
         }
         
         
+        
+    }
+    void Animations()
+    {
         //Paramètre d'animation Crouch
-
-        crouched = CharControl.height == 1 ;
+        crouched = CharControl.height == 1;
         anim.SetBool("Crouched", crouched && CharControl.isGrounded);
+
+        //Paramètres Animation Jump
+        anim.SetBool("Grounded", CharControl.isGrounded);
+        anim.SetFloat("AirVelocity", jumpVelocity);
+
+        //Horizontal direction :
+        horiz = Input.GetAxis("Horizontal");
+        anim.SetFloat("Horizontal", horiz);
+
+        //Run/Walk
+        run = Input.GetAxis("Run");
+        anim.SetFloat("Run", run);
+
+        //Vertical direction :
+        vert = Input.GetAxis("Vertical");
+        anim.SetFloat("Vertical", vert);
+
+        //AnyDirectionalKey
+        any = Mathf.Abs(horiz) + Mathf.Abs(vert);
+        anim.SetFloat("AnyDirectionalKey", any);
+
     }
     void DeathZone()
     {
-        if (Player.transform.position.y < DeathZonePos)
-        {
-            Player.transform.position = SpawnPoint.transform.position;
-        }
+        
     }
     }
