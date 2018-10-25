@@ -5,6 +5,8 @@
 \usepackage{titlesec} % Pour display le numero du chapitre plutot que "Chapter 1"
 \titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
 \usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{position=below}
 
 \title{RageQuit}
 \author{Groupe Souka}
@@ -36,13 +38,19 @@
         \end{huge}
     \end{center}
         
+    \newpage
+    presentation du sujet :
+presentation du sujet: fabien 1min, présentation du planing et des taches communes: tout le monde , 2min chaqun expliquant son travaile, Conclusion 1min avec planing prochaine soutenance
+avec rappel de ceq ui est à faire
+
      %               NEWPAGE               %
     \newpage
     
     % Police
     \sf
-    
-    \tableofcontents
+    \begin{small}
+        \tableofcontents
+    \end{small}
 
     \chapter{Introduction}
     \par
@@ -137,7 +145,7 @@
             \hline
                 Réseau & 65\%  \tabularnewline
             \hline
-                Modélisation Personnages et Monstres & 40\%  \tabularnewline
+                Modélisation Personnages et Monstres & 20\%  \tabularnewline
             \hline
                 Trailer du jeu et vidéo de gameplay &  0\%\tabularnewline
             \hline
@@ -145,44 +153,217 @@
             \hline
                 GitHub & 100\% \tabularnewline
             \hline
-                Création des niveaux & 20\%  \tabularnewline
+                Création des niveaux & 10\%  \tabularnewline
             \hline
         \end{tabular}
     
     \chapter{Avancement}
-    \section{Site}
+    \section{Site (Donovan)}
     \section{Carte (Fabien)}
+    %[!h] pour here : on place l'image la ou le code est écrit
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[scale =0.32]{BackGround}
+        \caption{Vue sur la majeur partie du premier niveau}
+    \end{figure}
         La carte est constituée de multiples plateformes, de rochers et de végétation. Toute la végétation provient d'assets gratuits du pack «LowPoly Forest Pack» disponible sur l'Asset Store de Unity. En revanche les rochers et les plateformes ont été réalisés sur Blender à partir d’un bloc qu’on sculpte à l’aide de l’outil “Bissecter” puis une fois l’asset transféré sur Unity, il se voit rajouter un box collider. On notera que chaque asset de végétation s'est vu rajouté un box collider qui n’était pas fourni par le set.\\
         \\
-        \includegraphics[height =7cm]{blender2}   
-        \includegraphics[scale =0.7]{blender3} \\        		   
-        Grâce à ces assets, nous pouvons réaliser des niveaux à notre guise. Actuellement nous avons construit un niveau réalisé par Fabien qui comporte en plus des éléments cités, des pièges qui sont des animations de blocs dans notre scène. Dans notre niveau le joueur est censé sauter sur des plate-formes et rester sur celles-ci lors de ses déplacements, c’est pourquoi nous avons attaché à ces plate-formes le script qui a pour but de passer le joueur comme enfant de la plate-forme pour qu’il hérite de son déplacement quand le joueur entre dans la zone de détection de la plate-forme (nous avons utilisé un box collider comme zone de détection).\\
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[height =7cm]{blender2}
+            \includegraphics[scale =0.7]{blender3} \\  
+            \caption{Deux assets utilisés sur les niveaux}
+        \end{figure}
+        Grâce à ces assets, nous pouvons réaliser des niveaux à notre guise. Actuellement nous avons construit un niveau réalisé par Fabien qui comporte en plus des éléments cités, des pièges qui sont des animations de blocs dans notre scène. 
+        \\
+        Dans notre niveau le joueur est censé sauter sur des plate-formes et rester sur celles-ci lors de ses déplacements, c’est pourquoi nous avons attaché à ces plate-formes le script qui a pour but de passer le joueur comme enfant de la plate-forme pour qu’il hérite de son déplacement quand le joueur entre dans la zone de détection de la plate-forme (nous avons utilisé un box collider comme zone de détection).\\
     \section{Intelligence Artificielle (Fabien)}
         Dans le jeu, le joueur peut se faire attaquer en multijoueur et en solo par les Zoïds, les habitants de Xtra. Les Zoïds ont pour but d’attaquer le joueur à vue et de l’éjecter des plate-formes. Pour cela nous avons créé le script «EnemyController » qui a pour but de déplacer l’ennemi à l’approche du joueur. La fonction Onedrawselecter dessine en rouge la gizmo (la zone de détection de l’IA) dans la scène mais pas dans la partie. Ensuite le principal but de ce script est de vérifier si le joueur est dans la zone de détection. Pour cela on utilise la boucle if (distance = look radius) qui vérifie si la distance entre le joueur et l’IA est égale à la taille de notre zone de détection (si elle est inférieure le joueur est forcément à l’intérieur) si oui on utilise la méthode Setdestination() sur agent qui va déplacer notre IA à la position du joueur.
+        \\
+       \begin{figure}[!h]
+            \centering
+            \includegraphics[height =7cm]{ia}
+            \caption{Illustration du fonctionnement de l'IA}
+        \end{figure}
+        
+        
     \section{Scénario (Alexandre \& Arthur)}
-        L’humanité ayant découvert des sources de vie extraterrestre sur une planète lointaine, baptisé Xtra, elle décida de protéger ces dernières. C’est lors d’un regroupement des dirigeants de la Terre qu’il fut convenu que la planète en question deviendrait une planète protégée. Cependant, un groupe de chercheurs est parvenu à convaincre les dirigeants des intérêts stratégiques que pourrait représenter la planète, et se sont vus confiés la mission Athéna, mission ayant pour objectif de mener des recherches approfondies secrètement. Alors que d’importantes informations étaient en train d’être récolté grâce à un satellite en orbite autour d’Xtra celui-ci est mystérieusement endommagé. Il est alors décidé que VOUS êtes envoyé pour réparer ce satellite. Mais comme vous l’imaginez, rien ne se passe comme prévu … Votre vaisseau subit lui aussi une panne en approchant du satellite, et s’écrase sur la planète, vous laissant tout juste le temps de vous éjecter. Perdu dans les entrailles de la planète, il ne vous reste plus qu’à ramasser vos morceaux de vaisseaux éparpillés sur cette étrange planète, aidé seulement de votre IA qui vous guidera sur cette planète hostile. Le monde n’est pas vierge de toute civilisation, et des temples anciens vous barreront la route, remplis de piège et de mystère comme des peintures représentant des immenses créatures. Les indigènes extraterrestres sont humanoïdes, sociaux et intelligents cependant leur peuple est tribal et dangereux. Armés de lance, la peur de l’inconnu les amènera à vous attaquer instinctivement. Cependant, certains chapitres (niveaux) de notre jeu seront très différents de la thématique de base.
+        L’humanité ayant découvert des sources de vie extraterrestre sur une planète lointaine, baptisé Xtra, elle décida de protéger ces dernières. C’est lors d’un regroupement des dirigeants de la Terre qu’il fut convenu que la planète en question deviendrait une planète protégée. Cependant, un groupe de chercheurs est parvenu à convaincre les dirigeants des intérêts stratégiques que pourrait représenter la planète, et se sont vus confiés la mission Athéna, mission ayant pour objectif de mener des recherches approfondies secrètement. 
+        \\ \\
+        Alors que d’importantes informations étaient en train d’être récolté pour la mission grâce à un satellite en orbite autour d’Xtra, celui-ci est mystérieusement endommagé. Il est alors décidé que VOUS êtes envoyé pour réparer ce satellite. Mais comme vous l’imaginez, rien ne se passe comme prévu … Votre vaisseau subit lui aussi une panne en approchant du satellite, et s’écrase sur la planète, vous laissant tout juste le temps de vous éjecter.
+        \\ \\
+        Perdu dans les entrailles de la planète, il ne vous reste plus qu’à ramasser vos morceaux de vaisseaux éparpillés sur cette étrange planète, aidé seulement de votre IA qui vous guidera sur cette planète hostile. Le monde n’est pas vierge de toute civilisation, et des temples anciens vous barreront la route, remplis de piège et de mystère comme des peintures représentant des immenses créatures. Les indigènes extraterrestres sont humanoïdes, sociaux et intelligents cependant leur peuple est tribal et dangereux. Armés de lance, la peur de l’inconnu les amènera à vous attaquer instinctivement. Cependant, certains chapitres (niveaux) de notre jeu seront très différents de la thématique de base.
     \section{Joueur (Arthur \& Alexandre)}
+        Pour ma part (Arthur), les controles du personnage ont bien avancé, il est possible de se déplacer sur huit axes. Le personnage se déplace lors de l'utilisation des flèches ou des touches Z.Q.S.D du clavier. Unity récupère les touches enfoncées sous forme de flotants qui augmentent selon le temps d'appui, je les récupère en les affectant à des variables. Celles-ci ont été assignées aux forces appliquées sur mon personnage sous forme d'un vecteur tri-dimensionnel qui permet le déplacement du joueur. Ensuite, j'ai réalisé le saut du personnage en m'aidant de la bibliothèque de Unity qui me permet de savoir si la partie solide (le collider) touche le sol. J'ai donc vérifié si mon personnage touche le sol et si le joueur appuie sur la barre espace. Si c'est le cas mon personnage saute, sinon il lui est appliquée une force négative sur l'axe Y qui représente la gravité et permet donc au joueur de retomber.La capacité de courrir à aussi été ajouté permettant au joueur une plus grande maniabilité. Puisqu'il sagit d'un jeu de plateforme, un simple saut n'est pas suffisant. C'est pour cela que j'ai ajouté un double saut permettant une sensation de liberté de mouvements au joueur. Lors de test j'ai remarqué qu'il était difficile de savoir si le double saut à deja été réalisé. Par conséquant lors d'un double saut du personnage j'ai ajouté des particules sous forme d'une queue (Tail) derrière lui, qui disparait lorsqu'il touche le sol. Il est aussi possible de s'acroupir réduisant ainsi la taille de la partie solide du joueur. Cela permettera au joueur de se fauliler dans des espaces étroits. Par contre, lorsque le personnage est accroupi sa vitesse est diminué pour un soucis de réalisme.\\
+        \\
+        \begin{figure}[!h]
+            \includegraphics[height =7cm]{Personnage}   
+	        \includegraphics[height =7cm,width=11cm]{AnimTree} 
+            \caption{Personnage à gauche et exemple d'animations à droite}
+        \end{figure}
+        
+        Les animations du personnage ont aussi été réalisées. Tout d'abord j'ai téléchargé modèle gratuit représantant M.Brooks pour l'animer. Pour cela j'ai créé un script en c\#  qui récupère les valeurs des axes vu précédemment. Ceux-ci servent d'input a un arbre d'animation que j'ai entierement édité. Cet arbre joue les annimations correspondantes aux mouvement du personnage sur les huits axes. Ces animations ont tout d'abord été récupéré sur une asset puis modifié à l'aide d'un éditeur émergeant sur unity appellé Umotion car les animations ne correspondaient pas à mes attentes. Grâce à ces animations le personnage est humanisé et le joueurs c'est ce qu'il fait. Par example lorsque le joueur souhaite que le personnage cours celui-ci accélère et l'animation de course est jouée. Le passage de courrir à accroupi étant trop "brutale" j'ai décidé d'ajouté une animation de passage entre les deux sous forme d'une glissade ou d'une roulade dépendant de l'axe sur laquelle le joueur courait.   
+        \\
+        \\
+        Pour terminer, j'ai réalisé des objets récupérable par le joueur pour lui donner envie de se déplacé dans toute la map. Ceux-ci sont des petits carrés jaunes tournoyant.\\
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[scale =0.7]{Colectables}\\
+            \caption{Consommable}
+        \end{figure}
+        A l'aide d'un script, lorsque la partie solide du joueur rencontre la partie piégé (Trigger) du consommable, le point disparait et est comptabilisé. Un affichage (HUD) est donc présent pour indiquer au joueur son score pendant qu'il joue.
+        \\ \\ \\
+        \par
+        De mon coté (Alexandre), je me suis chargé de la caméra du personnage, qui devait d'abord être à la troisième personne (vue de derrière le personnage).
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[scale =0.7]{cam2.png}
+            \caption{A gauche détecteur d'objet de la caméra, à droite rendu en jeu}
+        \end{figure}
+        \vspace{0.4cm}
+        J'ai d'abord suivi un tutoriel pour la mise en place de la caméra et du script qui gére ses rotations en fonction du mouvement de la souris par le joueur. Lors de l'ajout de la caméra au joueur réalisé par Arthur, j'ai aussi dû rajouter la gestion des rotations du joueur en même temps que la caméra tourne.
+        \\ \\
+        La prochaine étape était la gestion des collisions de la caméra avec des objets. En fait, on veut éviter deux choses:
+        \begin{itemize}
+            \item que la caméra passe à travers des objets de l'environnement ou d'autres entités
+            \item que des objets puissent cacher la vue du personnage en se étant entre lui et la caméra \\
+        \end{itemize}
+        Pour ce faire, j'ai d'abord utilisé un raycast (comme présenté dans le tutoriel), dont on testait les collisions avec un objet entre le joueur et la caméra à chaque frame. Si un objet était détecté, alors on avançait la caméra devant l'objet. C'était donc une façon simple et optimisée de résoudre le problème, mais insuffisante: la caméra pouvait passer à travers certains objets au niveau des coins, et le fait de passer à travers les objets lorsque le script ramène la caméra en avant n'était pas très agréable pour le joueur.
+        \\ \\
+        J'en ai donc déduit qu'il fallait détecter les objets plus tôt, de façon à modifier la position de la caméra par rapport au joueur un peu avant qu'ils ne deviennent gênants pour la caméra. Après plusieurs essais, je suis parvenu à utiliser un collider, situé entre la caméra et le joueur. Lorsque des objets entre dans ce dernier, ils sont ajoutés à un dictionnaire (Dictionnary en C\#, nécessaire pour retrouver l'objet par son ID). Puis à chaque frame, on trouve l'objet le plus proche du joueur et on bouge la caméra devant lui. Comme les objets sont détectés avant qu'ils ne soient entre la caméra et le joueur, la caméra ne passe pas à travers de ces derniers lorsqu'elle se rapproche du joueur. On peut aussi éviter à la caméra de réagir lorsqu'elle détecte certains objet entre elle et le joueur en mettant le layer "Camera Ignore Collision" aux objets concernés.
+        \\ \\
+        Une fois la structure de base de la caméra réalisé, j'ai rajouté plusieurs options:
+        \begin{itemize}
+            \item une touche pour regarder autour du personnage sans tourner ce dernier
+            \item une touche pour changer de point de vue: la vue à la première était bien plus simple à implémenter une fois celle à la troisième personne réalisée
+            \item la possibilité de zoomer/dézommer avec la molette de la souris (le collider s'adapte à la distance séléctionné de la caméra en temps réel)\\
+        \end{itemize}
+        De plus, j'ai fait attention à mettre toutes les variables qui permettent de configurer la caméra en public, de sorte que nous puissions changer tous ses paramètres et son comportement facilement sans toucher au code à nouveau.
+        
     \section{Menu (Alexandre)}
+        J'ai cree un menu de demarrage, qui reprend les codes couleurs du logo du jeu, 			et dont le background est une vue du dessus du premier niveau.\\ \\
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[height =7cm]{menu_img}
+            \caption{Menu de démarrage}
+        \end{figure}
+        
+        La hierarchie du menu est comme cela:
+        \begin{itemize}
+            \item Play
+            \item MultiPlayer
+            \item Options
+                \begin{itemize}
+                    \item Graphics (sous-menu non implemente)
+                    \item Control
+                        \begin{itemize}
+                            \item X axis sensibility
+                            \item Y axis sensibility
+                            \item Forward
+                            \item Backward
+                            \item Left
+                            \item Right
+                            \item Camera View Switch
+                            \item Camera Unlock
+                        \end{itemize}
+                    \item Sound (sous-menu non implemente)
+                    \item Back
+                \end{itemize}
+            \item Exit\\
+        \end{itemize}
+        J'ai utilise TextMesh Pro (package propose par Unity) qui offre plus d'options pour la creation d'interfaces textuelles que celles disponibles de base sur Unity.
+        Pour les interactions avec le menu, il m'a suffit de mettre des Buttons, Sliders, et Input Fields qui sont assez simple a utiliser et a faire interagir avec les autres objets du menu ou variables de certains scripts.
+        
     \section{Réseau (Donovan)}
+    Le réseau est une notion réputée pour être relativement ardue
+    par les étudiants. Pourtant c'est une partie prépondérante de notre jeu et sans lui la qualité du gameplay serait profondément dégradée. J'ai choisi d'utiliser une extension de Unity pour monter le réseau du jeux vidéo. Elle se nomme "Forge networking". 
+    \\ \\
+    Rapidement, je me suis heurté contre une documentation qui me semblait confuse et je n'arrivais pas à construire un réseau digne de ce nom. Puis Arthur m'a proposé d'utiliser les fonctionnalités de base en réseaux proposée par Unity, qui étaient bien plus documentées et fournies de tutoriels. Pour cette première soutenance nous avons implémenté un réseau minimaliste, qui transmet les mouvements de chacun en temps réel à tous les autres joueurs connectés. 
+    \\ \\
+    Au commencement, j'ai été tenté d'utiliser des RPC "Remote Procedure Call" pour traduire le déplacement des personnages, mais le réseau se trouva rapidement saturé de requêtes de toute sorte. Il fallait alors trouver une solution moins gourmande en accès réseau. Ainsi on a construit un réseau en local à l'aide de Unity et de son réseaux, en utilisant Network Manager et Network Manager HUD. Ainsi 20 joueurs peuvent rejoindre le serveur en contrôlant leur propre personnage à l'aide des Network Tranform et Network Identity pour le réseau.
     
     \chapter{Travail à venir}
     \section{Intelligence Artificielle}
-        Nous comptons ajouter une fonction chargée d’éjecter le joueur lors d’un contact avec le collider de l'IA, sans oublier d’ajouter les animations de déplacement, d’attaque et le skin du Zoïd.\\
+        Nous comptons ajouter une fonction chargée d’éjecter le joueur lors d’un contact avec l'IA. Graphiquement nous allons ajouter le skin du Zoid puis nous allons crées et ajouter des animations de déplacement, d'attaque.\\
     \section{Bruitages et Sons}
         Il est prévu de créer des musiques différentes et adaptées à la situation: elle sera rapide et stressante lors des phases de combat, calme et relaxante lors des phases de parcours.\\
     \section{Carte}
-        Enfin, nous créerons une dizaine de cartes solos et trois cartes multijoueurs toutes différentes. Avec des décors et des mécaniques nouvelles et variées.
+        Enfin, nous allons crées une dizaine de cartes solos et trois cartes multijoueurs toutes différentes. Avec des décors et des mécaniques nouvelles et variées. Nous comptons remplacés les quarrés jaune que nous ramasons par des cristaux.
+    \section{Menu}
+        Nous allons rajouter la totalite des options manquantes au menu :
+        \\
+        \begin{itemize}
+            \item Graphique:
+                \begin{itemize}
+                    \item Résolution (nombre de pixels * pixels)
+                    \item Plein écran, fenêtré \\
+                \end{itemize}
+            \item Son:
+                \begin{itemize}
+                    \item Volume general
+                    \item Volume du son en jeu, musique, dialogue (precise et ajoute une fois que le son sera ajoute)\\
+                \end{itemize}
+            \item Controles:
+                \begin{itemize}
+                    \item Controles du personnage (touches directionnelles, saut)
+                    \item Touches diverses (changement de point de vue, etc)
+                \end{itemize}
+        \end{itemize}
     
     \chapter{Récit de la réalisation}
     \section{Fabien}
         La confection d’un jeu vidéo n’est pas une tâche facile pour des débutants comme moi et mes camarades sur des logiciels tels que Unity ou Blender. M’étant impliqué dans la confection des plate-formes et du terrain de jeu, j’ai dû rapidement me familiariser avec les deux logiciels précédents. Même si le jeu et ma réalisation empiètent sur mon temps personnel, c’est un réel plaisir de faire ce travail. De plus l’ambiance du groupe est satisfaisante même si je n’ai pas énormément ressenti la motivation de Donovan qui je l’espère devrait s’améliorer avec le temps.
     \section{Alexandre}
-        I'm not going to Bullshit bro
+        Pour l'instant, je suis plutôt satisfait de ce que m'apporte le projet. On apprend à travailler en groupe, à utiliser Github (malgré quelques problèmes de version au début). C'est pas simple, mais on avance pas si mal ensemble, bien que Donovan ait mis un peu de temps à démarrer, mais je ne doute pas que son implication augmentera d'ici les prochaines soutenances. Personnellement, j'ai apprécié la réalisation de la caméra, malgré le fait d'avoir rencontré quelques difficultés car je n'ai pas voulu regarder de tutoriel autre que celui présentant la base d'une caméra. Je pense que c'est une bonne façon de faire car le code n'est peut être pas optimisé au maximum, mais ça m'a permis de faire pas mal d'erreurs (à coté desquelles je serais passé sans Unity), et donc d'apprendre comment fonctionne vraiment certaines méthodes ou structure de Unity, ainsi qu'à utiliser la documentation de Unity.
+        J'ai par ailleurs amélioré mon français en tant que relecteur officiel de l'équipe Souka.
     \section{Donovan}
         Contrairement à ce que je pouvais penser, l’élaboration d’un jeuvidéo n’est pas aussi enfantin qu’il pourrait nous sembler. C’est une activité chronophage qui demande concentration et rigueur.
     \section{Arthur}
         La réalisation d’un jeu de plateforme et d'aventure nous demande beaucoup de temps et de travail. En effet, apprendre à utiliser les logiciels, comme Unity et Blender pour répondre au besoin de notre jeu, nous prend beaucoup de temps. Nous avons aussi rencontré beaucoup de problèmes que nous avons résolu en groupe. Ce projet va nous permettre d’acquérir les connaissances nécessaires à la création d’un jeu et d’apprendre à travailler en groupe et être autonome.
     \section{Groupe}
-    
+        Nous étions tous impatients de démarrer ce projet. Nous avons mis en place 				des méthodes afin d’assurer un travail
+		d’équipe efficace, tel qu’un test organisé toutes les semaines afin
+		de faire le point sur les avancées, les difficultés et les découvertes
+		de chacun. Cela permet aussi de régulièrement vérifier que nos
+		travaux sont compatibles.\\
+        \\
+		Tout au long de ce projet nous espérons nous améliorer au niveau
+		du travail d’équipe et de l’organisation
     \chapter{Conclusion}
+        Les objectifs fixés pour la premières soutenance ont été totalemement atteint 				avec de l'avance :
+        \\
+        
+         \begin{tabular}{|l|l|}
+            \hline
+                Tâches :& Soutenance 1 \tabularnewline
+            \hline
+                Site internet& 40\%  \tabularnewline
+            \hline
+                Scénario:& 60\%  \tabularnewline
+            \hline
+                Installation et Désinstallation :&  0\% \tabularnewline
+            \hline
+                Paramètres du jeu & 35\% \tabularnewline
+            \hline
+                Bruitage et sons& 0\% \tabularnewline
+            \hline
+                Animations et Cinématiques& 40\% \tabularnewline
+            \hline
+                Intelligence artificielle & 30\% \tabularnewline
+            \hline
+                Réseau & 65\%  \tabularnewline
+            \hline
+                Modélisation Personnages et Monstres & 20\%  \tabularnewline
+            \hline
+                Trailer du jeu et vidéo de gameplay &  0\%\tabularnewline
+            \hline
+                Création d’objets et composants de jeu &  50\%\tabularnewline
+            \hline
+                GitHub & 100\% \tabularnewline
+            \hline
+                Création des niveaux & 10\%  \tabularnewline
+            \hline
+        \end{tabular}
+
+        
 \end{document}
