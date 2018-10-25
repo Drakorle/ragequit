@@ -310,11 +310,14 @@ GameObject:
   - component: {fileID: 143111989991695698}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   - component: {fileID: 114528841864027976}
 >>>>>>> parent of cf29035... Merge branch 'master' of https://github.com/Drakorle/ragequit
 =======
 >>>>>>> parent of 208822e... res
+=======
+>>>>>>> parent of 779f3f8... res
   m_Layer: 9
   m_Name: Player_2.3
   m_TagString: Player
@@ -1847,6 +1850,7 @@ MonoBehaviour:
   gravity: 30
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!114 &114528841864027976
 MonoBehaviour:
@@ -1883,6 +1887,8 @@ MonoBehaviour:
 >>>>>>> parent of cf29035... Merge branch 'master' of https://github.com/Drakorle/ragequit
 =======
 >>>>>>> parent of 208822e... res
+=======
+>>>>>>> parent of 779f3f8... res
 --- !u!114 &114539687060472240
 MonoBehaviour:
   m_ObjectHideFlags: 1
