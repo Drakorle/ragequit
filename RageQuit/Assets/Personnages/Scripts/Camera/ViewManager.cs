@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ViewManager : MonoBehaviour {
+public class ViewManager : NetworkBehaviour {
 
     public KeyCode ViewSwitchKey = KeyCode.V;
     public View CurrentView = View.ThirdPerson; //default view can be specified with this parameter
@@ -26,6 +27,8 @@ public class ViewManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!isLocalPlayer)
+        { return; }
         bool switchKeyPressed = Input.GetKey(ViewSwitchKey);
         if (switchKeyPressed && keyPreviouslyReleased)
         {
