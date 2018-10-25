@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class PlayerAnimations : NetworkBehaviour {
+public class PlayerAnimations : MonoBehaviour {
 
     private Animator anim;
     private float horiz;
@@ -21,8 +20,6 @@ public class PlayerAnimations : NetworkBehaviour {
     void Update()
     {
         // Pour Grounded / AirVelocity voir PlayerMove
-        if (!isLocalPlayer)
-        { return; }
 
         //Horizontal direction :
         horiz = Input.GetAxis("Horizontal");
