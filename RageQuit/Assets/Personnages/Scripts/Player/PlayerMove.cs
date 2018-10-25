@@ -146,13 +146,13 @@ public class PlayerMove : MonoBehaviour {
                 CharControl.height = 1;
                 crouched = true;
                 WaitingTime = 0;
-                Body.transform.position += new Vector3(0, 0.45f, 0);
+                Body.transform.position += new Vector3(0, 0.4f, 0);
             }
             else
             {
                 crouched = false;
                 WaitingTime = 0;
-                Body.transform.position += new Vector3(0, -0.45f, 0);
+                Body.transform.position += new Vector3(0, -0.4f, 0);
             }
         }
 
