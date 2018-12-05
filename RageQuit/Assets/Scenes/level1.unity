@@ -1532,6 +1532,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118669747}
   m_CullTransparentMesh: 0
+--- !u!1 &119653564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1003955280320442, guid: 15b804df5a8f2054ca609244d4a11eb6,
+    type: 2}
+  m_PrefabInternal: {fileID: 194765227}
 --- !u!1 &134008051
 GameObject:
   m_ObjectHideFlags: 0
@@ -19079,6 +19084,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4185197140983292, guid: 8b2d3656ff30f294f8ad8689072e12f6,
     type: 2}
   m_PrefabInternal: {fileID: 1229698811}
+--- !u!1 &1230335130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1464999368326260, guid: 15b804df5a8f2054ca609244d4a11eb6,
+    type: 2}
+  m_PrefabInternal: {fileID: 194765227}
 --- !u!1 &1235287406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1922519853470212, guid: 8b2d3656ff30f294f8ad8689072e12f6,
@@ -31949,6 +31959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuHolder: {fileID: 675195640}
   CameraBase: {fileID: 1701988734}
+  FirstPerson: {fileID: 119653564}
+  ThirdPerson: {fileID: 1230335130}
 --- !u!1001 &2129020809
 Prefab:
   m_ObjectHideFlags: 0
