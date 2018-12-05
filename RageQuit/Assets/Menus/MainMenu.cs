@@ -183,4 +183,9 @@ public class MainMenu : MonoBehaviour
         Text t = MessageObject.transform.Find("Text").GetComponent<Text>();
         t.text = message;
     }
+
+    public static KeyCode GetKeyCode(string prefName)
+    {
+        return (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(prefName));
+    }
 }

@@ -39,6 +39,7 @@ public class ControlKeySelection : MonoBehaviour {
         if (detectKey)
         {
             Event e = Event.current;
+
             if (e.isKey || e.isMouse)
             {
                 if (e.isKey)

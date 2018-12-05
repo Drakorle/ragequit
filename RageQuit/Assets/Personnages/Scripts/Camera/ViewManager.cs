@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class ViewManager : MonoBehaviour {
 
-    public KeyCode ViewSwitchKey = KeyCode.V;
     public View CurrentView = View.ThirdPerson; //default view can be specified with this parameter
     public GameObject FirstPersonObj;
     public GameObject ThirdPersonObj;
 
+    private KeyCode ViewSwitchKey;
     private bool keyPreviouslyReleased;
 	
     void Start()
     {
+        ViewSwitchKey = MainMenu.GetKeyCode("ViewSwitchKey");
+
         //disable all script by default, and enable only CurrenView script
         for (int i = 0; i < Enum.GetValues(typeof(View)).Length; i++)
         {

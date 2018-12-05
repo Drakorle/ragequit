@@ -8,8 +8,8 @@ public class CameraFollower : MonoBehaviour
 	public float CameraVerticalSensitivity = 150.0f;
     public float CameraHorizontalSensitivity = 150.0f;
     public float RotationRecoveringSmooth = 10.0f; //Smooth the speed of camera recovery after alt push
-    public KeyCode FreeCameraKey = KeyCode.LeftAlt;
 
+    private KeyCode FreeCameraKey;
     private float rotationX;
     private float lastRotationX;
 	private float rotationY;
@@ -19,6 +19,8 @@ public class CameraFollower : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        FreeCameraKey = MainMenu.GetKeyCode("FreeViewKey");
+
 		Vector3 rotation = transform.localRotation.eulerAngles;
 		rotationX = rotation.x;
 		rotationY = rotation.y;

@@ -22,15 +22,16 @@ public class PlayerAnimations : MonoBehaviour {
         // Pour Grounded / AirVelocity voir PlayerMove
 
         //Horizontal direction :
-        horiz = Input.GetAxis("Horizontal");
+        PlayerMove.GetAxis(ref horiz, "RightKey", "LeftKey", 3);
         anim.SetFloat("Horizontal", horiz);
 
         //Run/Walk
-        run = Input.GetAxis("Run");
+        //run = Input.GetAxis("Run");
+        PlayerMove.GetAction(ref run, "SprintKey", 1000);
         anim.SetFloat("Run", run);
 
         //Vertical direction :
-        vert = Input.GetAxis("Vertical");
+        PlayerMove.GetAxis(ref vert, "ForwardKey", "BackKey", 3);
         anim.SetFloat("Vertical", vert);
 
         //AnyDirectionalKey

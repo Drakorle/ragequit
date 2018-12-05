@@ -33,6 +33,11 @@ public class PlayerMove : MonoBehaviour {
     private float jumpVelocity;
     public float gravity = 30f;
 
+    //move axis
+    private float vert = 0;
+    private float horiz = 0;
+    private float run = 0;
+
     // Use this for initialization
     void Awake()
     {
@@ -51,9 +56,13 @@ public class PlayerMove : MonoBehaviour {
     void MovePlayer()
     {
         //Recupération des touches 
-        float horiz = Input.GetAxis("Horizontal");
-        float run = Input.GetAxis("Run");
-        float vert = Input.GetAxis("Vertical");
+        //float run = Input.GetAxis("Run");
+
+        GetAction(ref run, "SprintKey", 1000);
+
+        GetAxis(ref horiz, "RightKey", "LeftKey", 3);
+        GetAxis(ref vert, "ForwardKey", "BackKey", 3);
+
         //Déclaration des Vectors3
         Vector3 moveDirSide, moveDireForward;
         
@@ -79,7 +88,7 @@ public class PlayerMove : MonoBehaviour {
             }
             jumpVelocity = -gravity * Time.deltaTime;
             //si appuyer sur space
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")))
             {
                 jumpVelocity = jumpforce;
                 DJumpDone = false;
@@ -88,7 +97,7 @@ public class PlayerMove : MonoBehaviour {
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space) && DJumpDone == false)
+            if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")) && DJumpDone == false)
             {
                 // Création des particules du double saut
                 Trail = (GameObject)Instantiate(
@@ -139,7 +148,7 @@ public class PlayerMove : MonoBehaviour {
     {
         //Modification de la taille du personnage et reposition du corp graphic
 
-        if (Input.GetKey(KeyCode.A) && WaitingTime >= SlideTime)
+        if (Input.GetKeyDown(MainMenu.GetKeyCode("CrouchKey")) && WaitingTime >= SlideTime)
         {
             if (!crouched)
             {
@@ -165,8 +174,8 @@ public class PlayerMove : MonoBehaviour {
                 
         }
         //Non Slide
-        float run = Input.GetAxis("Run");
-        float vert = Input.GetAxis("Vertical");
+        PlayerMove.GetAction(ref run, "SprintKey", 1000);
+        PlayerMove.GetAxis(ref vert, "ForwardKey", "BackKey", 3);
         if (run <= 0 || vert == 0)
         {
             WaitingTime += 0.5f;
@@ -194,4 +203,65 @@ public class PlayerMove : MonoBehaviour {
             Player.transform.position = SpawnPoint.transform.position;
         }
     }
+
+    public static void GetAxis(ref float axis, string prefIncrease, string prefDecrease, int sensitivity)
+    {
+        KeyCode increase = MainMenu.GetKeyCode(prefIncrease);
+        KeyCode decrease = MainMenu.GetKeyCode(prefDecrease);
+
+        bool moving = false;
+
+        if (Input.GetKey(increase))
+        {
+            axis = Mathf.Clamp(axis + sensitivity * Time.deltaTime, -1f, 1f);
+            moving = true;
+        }
+        if (Input.GetKey(decrease))
+        {
+            axis = Mathf.Clamp(axis - sensitivity * Time.deltaTime, -1f, 1f);
+            moving = true;
+        }
+
+        if (!moving)
+        {
+            if (axis > 0.05)
+            {
+                axis -= sensitivity * 2 * Time.deltaTime;
+            }
+            else if (axis < -0.05)
+            {
+                axis += sensitivity * 2 * Time.deltaTime;
+            }
+            else
+            {
+                axis = 0;
+            }
+        }
     }
+
+    public static void GetAction(ref float axis, string prefIncrease, int sensitivity)
+    {
+        KeyCode increase = MainMenu.GetKeyCode(prefIncrease);
+
+        bool moving = false;
+
+        if (Input.GetKey(increase))
+        {
+            axis = Mathf.Clamp(axis + sensitivity * Time.deltaTime, -1f, 1f);
+            moving = true;
+        }
+
+        if (!moving)
+        {
+            if (axis > 0.05)
+            {
+                axis -= sensitivity * 2 * Time.deltaTime;
+            }
+            else
+            {
+                axis = 0;
+            }
+        }
+    }
+
+}
