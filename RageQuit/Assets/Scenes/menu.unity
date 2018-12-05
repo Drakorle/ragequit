@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &490860377
+--- !u!1001 &1166372455
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -220,12 +220,12 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114391121869933278, guid: d6c68e635eb74fd4e981d767a8278750,
+    - target: {fileID: 114309253678230460, guid: d6c68e635eb74fd4e981d767a8278750,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114391121869933278, guid: d6c68e635eb74fd4e981d767a8278750,
+    - target: {fileID: 114309253678230460, guid: d6c68e635eb74fd4e981d767a8278750,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -240,12 +240,12 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114309253678230460, guid: d6c68e635eb74fd4e981d767a8278750,
+    - target: {fileID: 114391121869933278, guid: d6c68e635eb74fd4e981d767a8278750,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114309253678230460, guid: d6c68e635eb74fd4e981d767a8278750,
+    - target: {fileID: 114391121869933278, guid: d6c68e635eb74fd4e981d767a8278750,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1

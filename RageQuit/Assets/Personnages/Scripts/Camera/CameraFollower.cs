@@ -15,10 +15,13 @@ public class CameraFollower : MonoBehaviour
 	private float rotationY;
     private bool altPreviouslyPushed;
     private bool rotationRecovering;
+    private bool inMenu;
 	
 	// Use this for initialization
 	void Start ()
 	{
+        inMenu = false;
+
         FreeCameraKey = MainMenu.GetKeyCode("FreeViewKey");
 
 		Vector3 rotation = transform.localRotation.eulerAngles;
@@ -33,42 +36,55 @@ public class CameraFollower : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        bool altPushed = Input.GetKey(FreeCameraKey);
-
-        if (altPreviouslyPushed && !altPushed)
+        if (!inMenu)
         {
-            rotationX = lastRotationX;
-            rotationY = FollowedPlayer.transform.localRotation.eulerAngles.y;
-            rotationRecovering = true;
+            bool altPushed = Input.GetKey(FreeCameraKey);
+
+            if (altPreviouslyPushed && !altPushed)
+            {
+                rotationX = lastRotationX;
+                rotationY = FollowedPlayer.transform.localRotation.eulerAngles.y;
+                rotationRecovering = true;
+            }
+
+            //mouse & stick inputs supported
+            float FinalInputX = Input.GetAxis("RightStickHorizontal") + Input.GetAxis("Mouse X");
+		    float FinalInputZ = Input.GetAxis("RightStickVertical") + Input.GetAxis("Mouse Y");
+
+		    //charge rotations
+		    rotationY += (FinalInputX * CameraHorizontalSensitivity) * PlayerPrefs.GetFloat("Y_axis_sensitivity") * Time.deltaTime;
+		    rotationX += (FinalInputZ * CameraVerticalSensitivity) * PlayerPrefs.GetFloat("X_axis_sensitivity") * Time.deltaTime;
+
+		    rotationX = Mathf.Clamp(rotationX, MinClampAngle, MaxClampAngle);
+
+            if (!altPushed)
+            {
+                lastRotationX = rotationX;
+                FollowedPlayer.transform.rotation = Quaternion.Euler(0, rotationY, 0); //player orientation
+            }
+
+            Quaternion cameraRotation = Quaternion.Euler(rotationX, rotationY, 0);
+
+            if (rotationRecovering)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, cameraRotation, Time.deltaTime * RotationRecoveringSmooth); //camera orientation
+                if (transform.rotation == cameraRotation)
+                    rotationRecovering = false;
+            }
+            else
+                transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+
+            altPreviouslyPushed = altPushed;
         }
+    }
 
-        //mouse & stick inputs supported
-        float FinalInputX = Input.GetAxis("RightStickHorizontal") + Input.GetAxis("Mouse X");
-		float FinalInputZ = Input.GetAxis("RightStickVertical") + Input.GetAxis("Mouse Y");
-
-		//charge rotations
-		rotationY += (FinalInputX * CameraHorizontalSensitivity) * PlayerPrefs.GetFloat("Y_axis_sensitivity") * Time.deltaTime;
-		rotationX += (FinalInputZ * CameraVerticalSensitivity) * PlayerPrefs.GetFloat("X_axis_sensitivity") * Time.deltaTime;
-
-		rotationX = Mathf.Clamp(rotationX, MinClampAngle, MaxClampAngle);
-
-        if (!altPushed)
-        {
-            lastRotationX = rotationX;
-            FollowedPlayer.transform.rotation = Quaternion.Euler(0, rotationY, 0); //player orientation
-        }
-
-        Quaternion cameraRotation = Quaternion.Euler(rotationX, rotationY, 0);
-
-        if (rotationRecovering)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, cameraRotation, Time.deltaTime * RotationRecoveringSmooth); //camera orientation
-            if (transform.rotation == cameraRotation)
-                rotationRecovering = false;
-        }
+    public void IsInMenu(bool inMenu)
+    {
+        this.inMenu = inMenu;
+        Cursor.visible = inMenu;
+        if (inMenu)
+            Cursor.lockState = CursorLockMode.None;
         else
-            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
-
-        altPreviouslyPushed = altPushed;
+            Cursor.lockState = CursorLockMode.Locked;
     }
 }
