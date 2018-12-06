@@ -97,7 +97,7 @@ public class PlayerMove : MonoBehaviour {
         }
         else
         {
-            if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")) && DJumpDone == false)
+            if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")) && DJumpDone == false && PickMoney.Hydro > 0)
             {
                 // Création des particules du double saut
                 Trail = (GameObject)Instantiate(
@@ -110,6 +110,7 @@ public class PlayerMove : MonoBehaviour {
 
                 jumpVelocity = jumpforce;
                 DJumpDone = true;
+                PickMoney.Hydro -= 1;
 
             }
             jumpVelocity -= gravity * Time.deltaTime;
@@ -155,13 +156,13 @@ public class PlayerMove : MonoBehaviour {
                 CharControl.height = 1;
                 crouched = true;
                 WaitingTime = 0;
-                Body.transform.position += new Vector3(0, 0.4f, 0);
+                Body.transform.position += new Vector3(0, 0.55f, 0);
             }
             else
             {
                 crouched = false;
                 WaitingTime = 0;
-                Body.transform.position += new Vector3(0, -0.4f, 0);
+                Body.transform.position += new Vector3(0, -0.55f, 0);
             }
         }
 
@@ -201,7 +202,19 @@ public class PlayerMove : MonoBehaviour {
         if (Player.transform.position.y < DeathZonePos)
         {
             Player.transform.position = SpawnPoint.transform.position;
+            PickMoney.Hydro = 15;
+            GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("PickUpHydro");
+
+            foreach (GameObject go in gameObjectArray)
+            {
+                
+                Debug.LogWarning(go.name + " Activé !");
+                go.SetActive(true);
+                if (!go.transform.GetChild(0).gameObject.active)
+                    go.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
+
     }
 
     public static void GetAxis(ref float axis, string prefIncrease, string prefDecrease, int sensitivity)

@@ -7,17 +7,25 @@ public class PickMoney : MonoBehaviour {
 
     public Text ScoreText;
     private int Score;
+    public int StartHydro;
+    public static int Hydro;
 
 	// Use this for initialization
 	void Start ()
     {
         Score = 0;
-	}
+        Hydro = StartHydro;
+        SetScore();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         SetScore();
+        if(Hydro > 15)
+        {
+            Hydro = 15;
+        }
 		
 	}
 
@@ -30,10 +38,18 @@ public class PickMoney : MonoBehaviour {
             
 
         }
+
+        if (other.gameObject.CompareTag("PickUpHydro"))
+        {
+            other.gameObject.SetActive(false);
+            Hydro += 5;
+
+
+        }
     }
 
     void SetScore()
     {
-        ScoreText.text = "Score: " + Score;
+        ScoreText.text = "Score: " + Score + " Hydro: " + Hydro;
     }
 }
