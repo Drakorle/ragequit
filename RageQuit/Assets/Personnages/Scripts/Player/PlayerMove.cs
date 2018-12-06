@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class PlayerMove : NetworkBehaviour {
+public class PlayerMove : MonoBehaviour {
 
     //Appel aux Objets du jeu
     public GameObject Player;
@@ -15,7 +14,6 @@ public class PlayerMove : NetworkBehaviour {
     private GameObject Trail;
     public int DeathZonePos;
     public Camera cam;
-    public NetworkStartPosition[] spawnPoints = new NetworkStartPosition[2];
 
     //Basics
     public float WalkSpeed = 4 ;
@@ -48,17 +46,11 @@ public class PlayerMove : NetworkBehaviour {
     void Awake()
     {
         CharControl = GetComponent<CharacterController>();
-        spawnPoints = FindObjectsOfType<NetworkStartPosition>();
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (!isLocalPlayer)
-        {
-            cam.enabled = false;
-            return;
-        }
         Animation();
         Crouch();
         MovePlayer();
