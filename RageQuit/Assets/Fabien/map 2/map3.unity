@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -113,6 +113,32 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &79104656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1671365791066536, guid: 44ca853cce2eea842b4c1f2b57d932f0,
+    type: 2}
+  m_PrefabInternal: {fileID: 403024980}
+--- !u!195 &79104657
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79104656}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &194915985
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +385,8 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1290792400}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 195595817782255658, guid: 44ca853cce2eea842b4c1f2b57d932f0, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 44ca853cce2eea842b4c1f2b57d932f0, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &467055116

@@ -309,6 +309,8 @@ GameObject:
   - component: {fileID: 4188631086818276}
   - component: {fileID: 95226170023357244}
   - component: {fileID: 114054148890281970}
+  - component: {fileID: 114799683730582076}
+  - component: {fileID: 114626968424164220}
   m_Layer: 9
   m_Name: CyberSoldier
   m_TagString: Untagged
@@ -629,6 +631,8 @@ GameObject:
   - component: {fileID: 114416491103219520}
   - component: {fileID: 114328090980910054}
   - component: {fileID: 143689819242837808}
+  - component: {fileID: 114522213913111264}
+  - component: {fileID: 114476554761412314}
   m_Layer: 9
   m_Name: Player_2.4 1
   m_TagString: Player
@@ -800,6 +804,22 @@ GameObject:
   - component: {fileID: 4710497467782786}
   m_Layer: 9
   m_Name: ThumbMiddle.R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1925986410006536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4659938097292300}
+  - component: {fileID: 114647159016080430}
+  m_Layer: 0
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1143,6 +1163,7 @@ Transform:
   - {fileID: 4880248113331056}
   - {fileID: 4052885290807418}
   - {fileID: 4672453233293960}
+  - {fileID: 4659938097292300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1315,6 +1336,19 @@ Transform:
   - {fileID: 4417008635939890}
   m_Father: {fileID: 4243060154101558}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4659938097292300
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925986410006536}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.94, y: 2.5229173, z: 13.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4364133839897220}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4672453233293960
 Transform:
@@ -1855,10 +1889,16 @@ MonoBehaviour:
   anim: {fileID: 95226170023357244}
   SuperTrail: {fileID: 1314373399019798, guid: 5acbb268c305da040977ca5a6fe26f56, type: 2}
   DJumpTrail: {fileID: 4415282230891976}
-  SpawnPoint: {fileID: 0}
-  DeathZonePos: -70
+  DeathZonePos: -10
+  cam: {fileID: 20718656900565740}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   WalkSpeed: 5
   RunSpeed: 5
+  SpawnX: 8.99
+  SpawnY: 4
+  SpawnZ: 2.4
   SlideTime: 20
   CrouchSpeed: 3
   jumpforce: 10
@@ -1890,6 +1930,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 114503915153780186}
   StartHydro: 15
+--- !u!114 &114476554761412314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1685097178696446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 4
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114502246637967002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1936,6 +1997,68 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 5
   m_Text: 'Score : '
+--- !u!114 &114522213913111264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1685097178696446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 21
+    i1: 184
+    i2: 4
+    i3: 223
+    i4: 90
+    i5: 143
+    i6: 32
+    i7: 84
+    i8: 202
+    i9: 96
+    i10: 146
+    i11: 68
+    i12: 212
+    i13: 161
+    i14: 30
+    i15: 182
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114626968424164220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345849484609708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 95226170023357244}
+  m_ParameterSendBits: 0
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
+--- !u!114 &114647159016080430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925986410006536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1050975500, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114681103955206802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1960,6 +2083,38 @@ MonoBehaviour:
   ObjectDetector: {fileID: 65107429190287052}
   ObjectDetectorSize: {x: 0.2, y: 0.2}
   ObjectDetectorShift: 0.5
+--- !u!114 &114799683730582076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345849484609708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 21
+    i1: 184
+    i2: 4
+    i3: 223
+    i4: 90
+    i5: 143
+    i6: 32
+    i7: 84
+    i8: 202
+    i9: 96
+    i10: 146
+    i11: 68
+    i12: 212
+    i13: 161
+    i14: 30
+    i15: 182
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114851225684652812
 MonoBehaviour:
   m_ObjectHideFlags: 1

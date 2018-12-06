@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMove : MonoBehaviour {
+public class PlayerMove : NetworkBehaviour {
 
     //Appel aux Objets du jeu
     public GameObject Player;
@@ -12,19 +13,24 @@ public class PlayerMove : MonoBehaviour {
     public GameObject SuperTrail;
     public Transform DJumpTrail;
     private GameObject Trail;
-    public GameObject SpawnPoint;
     public int DeathZonePos;
+    public Camera cam;
+    public NetworkStartPosition[] spawnPoints = new NetworkStartPosition[2];
 
     //Basics
     public float WalkSpeed = 4 ;
     public float RunSpeed = 6;
-    
+    public float SpawnX;
+    public float SpawnY;
+    public float SpawnZ;
+
     //Crouch
     private float Slide = 0;
     public float SlideTime = 15;
     bool crouched = false;
     private float WaitingTime = 10;
     public float CrouchSpeed = 2;
+    private float any;
 
     //Jump
     private bool TrailExist = false;
@@ -42,15 +48,23 @@ public class PlayerMove : MonoBehaviour {
     void Awake()
     {
         CharControl = GetComponent<CharacterController>();
+        spawnPoints = FindObjectsOfType<NetworkStartPosition>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
+        if (!isLocalPlayer)
+        {
+            cam.enabled = false;
+            return;
+        }
+        Animation();
         Crouch();
         MovePlayer();
         Jump();
         DeathZone();
+        
         
 	}
     void MovePlayer()
@@ -201,7 +215,7 @@ public class PlayerMove : MonoBehaviour {
     {
         if (Player.transform.position.y < DeathZonePos)
         {
-            Player.transform.position = SpawnPoint.transform.position;
+            Player.transform.position = new Vector3(SpawnX,SpawnY,SpawnZ);
             PickMoney.Hydro = 15;
             GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("PickUpHydro");
 
@@ -276,5 +290,23 @@ public class PlayerMove : MonoBehaviour {
             }
         }
     }
+    void Animation()
+    { 
+        //Horizontal direction :
+        PlayerMove.GetAxis(ref horiz, "RightKey", "LeftKey", 3);
+        anim.SetFloat("Horizontal", horiz);
 
+        //Run/Walk
+        //run = Input.GetAxis("Run");
+        PlayerMove.GetAction(ref run, "SprintKey", 1000);
+        anim.SetFloat("Run", run);
+
+        //Vertical direction :
+        PlayerMove.GetAxis(ref vert, "ForwardKey", "BackKey", 3);
+        anim.SetFloat("Vertical", vert);
+
+        //AnyDirectionalKey
+        any = Mathf.Abs(horiz) + Mathf.Abs(vert);
+        anim.SetFloat("AnyDirectionalKey", any);
+    }
 }
