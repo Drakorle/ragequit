@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 114387004353793732}
   - component: {fileID: 114909334117399566}
   - component: {fileID: 143172381969282182}
+  - component: {fileID: 208207108061275964}
   m_Layer: 9
   m_Name: Player_2.4
   m_TagString: Player
@@ -1415,7 +1416,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945320229302100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.64, y: 3.81, z: -2.53}
+  m_LocalPosition: {x: 25.414833, y: 1.0270826, z: -18.731625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208193793634152}
@@ -1769,7 +1770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ae1a922872dc14d875ab3827dff17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewSwitchKey: 118
   CurrentView: 1
   FirstPersonObj: {fileID: 1653674866866182}
   ThirdPersonObj: {fileID: 1267962230864850}
@@ -1785,6 +1785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 114175433916307690}
+  StartHydro: 30
 --- !u!114 &114483105283460144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1818,7 +1819,6 @@ MonoBehaviour:
   CameraVerticalSensitivity: 150
   CameraHorizontalSensitivity: 150
   RotationRecoveringSmooth: 10
-  FreeCameraKey: 308
 --- !u!114 &114562393953306206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1899,13 +1899,13 @@ MonoBehaviour:
   SuperTrail: {fileID: 1314373399019798, guid: 5acbb268c305da040977ca5a6fe26f56, type: 2}
   DJumpTrail: {fileID: 4148141870386076}
   SpawnPoint: {fileID: 0}
-  DeathZonePos: -5
+  DeathZonePos: -70
   WalkSpeed: 5
   RunSpeed: 5
   SlideTime: 20
   CrouchSpeed: 3
   jumpforce: 10
-  gravity: 30
+  gravity: 15
 --- !u!114 &114911101327551720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2043,6 +2043,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.15, z: 0}
+--- !u!208 &208207108061275964
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945320229302100}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!222 &222592137347250298
 CanvasRenderer:
   m_ObjectHideFlags: 1
