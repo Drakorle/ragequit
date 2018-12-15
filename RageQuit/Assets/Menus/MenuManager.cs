@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityScript;
 
-public class MenuManager : MonoBehaviour {
+public class MenuManager : MonoBehaviour
+{
 
     public GameObject MenuHolder;
     public GameObject CameraBase;
@@ -13,7 +14,7 @@ public class MenuManager : MonoBehaviour {
     private KeyCode menuAccessKey = KeyCode.Escape;
     private bool menuDisplayed = false;
 
-	public void DisplayMenu()
+    public void DisplayMenu()
     {
         MenuHolder.SetActive(true);
         CameraBase.GetComponent<CameraFollower>().enabled = false;
@@ -22,6 +23,7 @@ public class MenuManager : MonoBehaviour {
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        menuDisplayed = !menuDisplayed;
     }
 
     public void HideMenu()
@@ -33,6 +35,7 @@ public class MenuManager : MonoBehaviour {
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        menuDisplayed = !menuDisplayed;
     }
 
     void Update()
@@ -43,7 +46,6 @@ public class MenuManager : MonoBehaviour {
                 DisplayMenu();
             else
                 HideMenu();
-            menuDisplayed = !menuDisplayed;
         }
     }
 }

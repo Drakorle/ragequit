@@ -7,6 +7,7 @@ public class EnemieController : MonoBehaviour {
 
     public float lookRadius = 10f;
     public Animator Zoid;
+    public Transform ZoidGraphics;
     Transform target;
     NavMeshAgent agent;
 
@@ -18,6 +19,8 @@ public class EnemieController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        ZoidGraphics.position = transform.position;
+        ZoidGraphics.rotation = transform.rotation;
         float distance = Vector3.Distance(target.position, transform.position); // def la distance joueur iA
         if(distance <= lookRadius)
         {
@@ -25,6 +28,8 @@ public class EnemieController : MonoBehaviour {
             agent.SetDestination( target.position);
             if(distance <= agent.stoppingDistance)
             {
+                Debug.LogWarning("ici");
+                Bumper.BumpNow = true;
                 Facetarget();
             }
         }

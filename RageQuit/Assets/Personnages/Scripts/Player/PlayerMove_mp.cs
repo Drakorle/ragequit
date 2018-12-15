@@ -85,7 +85,7 @@ public class PlayerMove_mp : NetworkBehaviour
         Vector3 moveDirSideMP, moveDireForwardMP;
 
         //Switch entre crouch et normal + décalage du Slide
-        if (CharControlMP.isGrounded && crouchedMP && (SlideMP == SlideTimeMP || runMP <= 0))
+        if (CanJump.Jumpable && crouchedMP && (SlideMP == SlideTimeMP || runMP <= 0))
         {
             moveDirSideMP = transform.right * horizMP * CrouchSpeedMP;
             moveDireForwardMP = transform.forward * vertMP * CrouchSpeedMP;
@@ -116,6 +116,7 @@ public class PlayerMove_mp : NetworkBehaviour
         }
         else
         {
+            //if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")) && DJumpDoneMP == false && PickMoney.Hydro > 0)
             if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")) && DJumpDoneMP == false && PickMoney.Hydro > 0)
             {
                 // Création des particules du double saut
@@ -130,6 +131,8 @@ public class PlayerMove_mp : NetworkBehaviour
                 jumpVelocityMP = jumpforceMP;
                 DJumpDoneMP = true;
                 PickMoney.Hydro -= 1;
+
+                
 
             }
             jumpVelocityMP -= gravityMP * Time.deltaTime;

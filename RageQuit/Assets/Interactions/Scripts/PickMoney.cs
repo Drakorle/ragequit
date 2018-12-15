@@ -47,6 +47,10 @@ public class PickMoney : MonoBehaviour {
 
         }
     }
+    void OnTriggerExit(Collider other)
+    {
+        
+    }
 
     void SetScore()
     {

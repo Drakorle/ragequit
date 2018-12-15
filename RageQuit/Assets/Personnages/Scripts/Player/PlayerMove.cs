@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour {
     //Appel aux Objets du jeu
     public GameObject Player;
     public CharacterController CharControl;
+    public Rigidbody PlayerRigi;
     public Transform Body;
     public Animator anim;
     public GameObject SuperTrail;
@@ -51,6 +52,7 @@ public class PlayerMove : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+
         Animation();
         Crouch();
         MovePlayer();

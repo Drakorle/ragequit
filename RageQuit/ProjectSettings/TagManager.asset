@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trail
   - PickUp
+  - PickUpHydro
   layers:
   - Default
   - TransparentFX

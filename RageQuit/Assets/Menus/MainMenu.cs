@@ -62,7 +62,15 @@ public class MainMenu : MonoBehaviour
 
     public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        if (scene == "next")
+        {
+            if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            else
+                SceneManager.LoadScene("menu");
+        }
+        else
+            SceneManager.LoadScene(scene);
     }
 
     public void QuitGame()

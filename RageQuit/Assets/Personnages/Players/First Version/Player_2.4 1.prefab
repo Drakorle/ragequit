@@ -1153,7 +1153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685097178696446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.64, y: 1.3, z: -2.53}
+  m_LocalPosition: {x: 1.0116378, y: 2.8743567, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4880248113331056}
@@ -1881,6 +1881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1685097178696446}
   CharControl: {fileID: 143689819242837808}
+  PlayerRigi: {fileID: 54621562650155120}
   Body: {fileID: 4188631086818276}
   anim: {fileID: 95770736137302590}
   SuperTrail: {fileID: 1314373399019798, guid: 5acbb268c305da040977ca5a6fe26f56, type: 2}
@@ -1889,9 +1890,9 @@ MonoBehaviour:
   cam: {fileID: 20718656900565740}
   WalkSpeed: 5
   RunSpeed: 5
-  SpawnX: 8.99
-  SpawnY: 4
-  SpawnZ: 2.4
+  SpawnX: 15.29
+  SpawnY: 4.86
+  SpawnZ: 3.95
   SlideTime: 20
   CrouchSpeed: 3
   jumpforce: 10
