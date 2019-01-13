@@ -56,6 +56,7 @@ public class Bumper : MonoBehaviour {
                  bumpZ * (BurstBump / BumpTime * bumpForce)
                 );
             CharControl.Move(moveDirUp * Time.deltaTime);
+            Debug.LogWarning((BurstBump / BumpTime * bumpForce));
             
         }
         BumpNow = BumpTime < BumpTimeEnd;
@@ -64,11 +65,10 @@ public class Bumper : MonoBehaviour {
 
     void SetPointToBump()
     {
-        
-        Player.rotation  = new Quaternion(Player.rotation.x,Monstre.rotation.y,Player.rotation.z,Player.rotation.w );
-        bumpX =-(Monstre.position.x - Player.position.x );
-        bumpY = -(Monstre.position.y - Player.position.y );
-        bumpZ = -(Monstre.position.z - Player.position.z) ;
+
+        bumpX = (2 * Player.position.x - Monstre.position.x) / BumpTimeEnd ;
+        bumpY = (2 * Player.position.y - Monstre.position.y) / BumpTimeEnd ;
+        bumpZ = (2 * Player.position.z - Monstre.position.z) / BumpTimeEnd ;
         
     }
 }

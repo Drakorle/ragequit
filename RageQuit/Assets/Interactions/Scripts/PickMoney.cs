@@ -47,13 +47,9 @@ public class PickMoney : MonoBehaviour {
 
         }
     }
-    void OnTriggerExit(Collider other)
-    {
-        
-    }
 
     void SetScore()
     {
-        ScoreText.text = "Score: " + Score + " Hydro: " + Hydro;
+        ScoreText.text = ": " + Score;
     }
 }
