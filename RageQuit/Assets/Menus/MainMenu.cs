@@ -53,11 +53,12 @@ public class MainMenu : MonoBehaviour
     public Slider Refresh_Rate;
     public int Default_Refresh_Rate = 60;
 
-    public void Start()
+    public void Awake()
     {
         LoadControlOptions();
         LoadGraphicOptions();
         LoadSoundOptions();
+        LoadLocalizationOptions();
     }
 
     public void LoadScene(string scene)
@@ -143,6 +144,17 @@ public class MainMenu : MonoBehaviour
         Environment_Volume.maxValue = Max_Environment_Volume;
         Environment_Volume.minValue = Min_Environment_Volume;
         Environment_Volume.value = PlayerPrefs.GetFloat("Environment_Volume");
+    }
+
+    public void LoadLocalizationOptions()
+    {
+        if (!PlayerPrefs.HasKey("localization"))
+            PlayerPrefs.SetString("localization", "en");
+
+        if (!PlayerPrefs.HasKey("localizationDropdownID"))
+            PlayerPrefs.SetInt("localizationDropdownID", 0);
+
+        PlayerPrefs.Save();
     }
 
     public void UpdateOption(string option)
