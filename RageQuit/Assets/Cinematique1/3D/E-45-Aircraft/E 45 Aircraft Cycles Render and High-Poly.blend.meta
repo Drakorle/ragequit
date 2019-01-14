@@ -3,6 +3,41 @@ guid: 0fe5c6408a8b3414c9c827b0674484dc
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
+    100000: Cube_000
+    100002: Cube_001
+    100004: Cube_002
+    100006: //RootNode
+    100008: Plane
+    400000: Cube_000
+    400002: Cube_001
+    400004: Cube_002
+    400006: //RootNode
+    400008: Plane
+    2100000: Material
+    2100002: ship_001__Spec_1_png
+    2100004: Material_002__Spec_1_png
+    2100006: Material_003__Spec_1_png
+    2100008: 1111__Spec_1_png
+    2100010: Material_000__untitled_004
+    2100012: Material_001__untitled_004
+    2100014: Material_000
+    2100016: Material_001
+    2100018: Material_005__Spec_1_png
+    2100020: Material_009__Spec_1_png
+    2300000: Cube_000
+    2300002: Cube_001
+    2300004: Cube_002
+    2300006: Plane
+    3300000: Cube_000
+    3300002: Cube_001
+    3300004: Cube_002
+    3300006: Plane
+    4300000: Plane
+    4300002: Cube_001
+    4300004: Cube_000
+    4300006: Cube_002
+    7400000: Default Take
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -56,7 +91,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
