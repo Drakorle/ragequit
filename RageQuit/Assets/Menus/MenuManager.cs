@@ -48,4 +48,10 @@ public class MenuManager : MonoBehaviour
                 HideMenu();
         }
     }
+
+    public void ChangeCursor()
+    {
+        Cursor.visible = !Cursor.visible;
+        Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
+    }
 }

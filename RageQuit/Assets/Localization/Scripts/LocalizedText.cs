@@ -24,7 +24,18 @@ public class LocalizedText : MonoBehaviour {
     private void UpdateText()
     {
         TMP_Text text = GetComponent<TMP_Text>();
-        text.text = LocalizationManager.instance.GetLocalizedText(key);
+        if (text != null)
+            text.text = LocalizationManager.instance.GetLocalizedText(key);
+        else
+        {
+            Text txt = GetComponent<Text>();
+            txt.text = LocalizationManager.instance.GetLocalizedText(key);
+        }
+
+        AddText followingTextWaiting = this.GetComponent<AddText>();
+
+        if (followingTextWaiting != null)
+            followingTextWaiting.AddFollowingText();
     }
 
     public static void UpdateTexts()

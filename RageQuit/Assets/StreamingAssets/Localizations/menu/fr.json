@@ -144,6 +144,16 @@
     {
       "key": "environment_volume_text",
       "value": "Volume de l'environnement"
+    },
+    
+    
+    {
+      "key": "level_text",
+      "value": "Niveau"
+    },
+    {
+      "key": "play_button",
+      "value": "Jouer!"
     }
   ]
 }

@@ -145,7 +145,16 @@
     {
       "key": "environment_volume_text",
       "value": "Environment Volume"
-    }
+    },
     
+    
+    {
+      "key": "level_text",
+      "value": "Level"
+    },
+    {
+      "key": "play_button",
+      "value": "Play!"
+    }
   ]
 }
