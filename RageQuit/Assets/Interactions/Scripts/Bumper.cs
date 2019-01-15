@@ -5,7 +5,9 @@ using UnityEngine;
 public class Bumper : MonoBehaviour {
 
     public CharacterController CharControl;
+    public static CharacterController CharControlStatic;
     public Transform Player;
+    public static Transform PlayerStatic;
     public Transform Monstre;
     public float bumpForce;
     public float BurstBump;
@@ -19,18 +21,24 @@ public class Bumper : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Player.position.Normalize();
 
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (BumpNow)
         {
             if (FirstCall)
             {
+                if (CharControlStatic != null)
+                {
+                    CharControl = CharControlStatic;
+                    Player = PlayerStatic;
+                }
                 FirstCall = false;
                 SetPointToBump();
                 BumpTime = 0f;
@@ -57,7 +65,7 @@ public class Bumper : MonoBehaviour {
                 );
             CharControl.Move(moveDirUp * Time.deltaTime);
             Debug.LogWarning((BurstBump / BumpTime * bumpForce));
-            
+
         }
         BumpNow = BumpTime < BumpTimeEnd;
         BumpTime += 1;
@@ -66,9 +74,9 @@ public class Bumper : MonoBehaviour {
     void SetPointToBump()
     {
 
-        bumpX = (2 * Player.position.x - Monstre.position.x) / BumpTimeEnd ;
-        bumpY = (2 * Player.position.y - Monstre.position.y) / BumpTimeEnd ;
-        bumpZ = (2 * Player.position.z - Monstre.position.z) / BumpTimeEnd ;
-        
+        bumpX = (2 * Player.position.x - Monstre.position.x) / BumpTimeEnd;
+        bumpY = (2 * Player.position.y - Monstre.position.y) / BumpTimeEnd;
+        bumpZ = (2 * Player.position.z - Monstre.position.z) / BumpTimeEnd;
+
     }
 }

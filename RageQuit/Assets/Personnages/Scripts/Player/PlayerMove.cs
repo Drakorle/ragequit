@@ -99,6 +99,7 @@ public class PlayerMove : MonoBehaviour {
             if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")))
             {
                 jumpVelocity = jumpforce;
+                //FindObjectOfType<AudioManager>().Play("Jump");
                 DJumpDone = false;
 
             }
