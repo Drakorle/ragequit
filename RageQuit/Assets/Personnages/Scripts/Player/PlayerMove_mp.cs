@@ -223,9 +223,9 @@ public class PlayerMove_mp : NetworkBehaviour
     {
         if (PlayerMP.transform.position.y < DeathZonePosMP)
         {
-            PlayerMP.transform.position = new Vector3(SpawnXMP, SpawnYMP, SpawnZMP);
+            PlayerMP.transform.position = GameObject.FindGameObjectsWithTag("Respawn")[0].transform.position;
             PickMoney.Hydro = 15;
-            GameObject[] gameObjectArrayMP = GameObject.FindGameObjectsWithTag("PickUpHydro");
+            GameObject[] gameObjectArrayMP = GameObject.FindGameObjectsWithTag("Respawn" );
 
             foreach (GameObject go in gameObjectArrayMP)
             {
