@@ -17,6 +17,14 @@
       "value": "QUITTER"
     },
     {
+      "key": "main_menu_button",
+      "value": "MENU PRINCIPAL"
+    },
+    {
+      "key": "resume_button",
+      "value": "RETOUR AU JEU"
+    },
+    {
       "key": "back_button",
       "value": "RETOUR"
     },
@@ -154,6 +162,10 @@
     {
       "key": "play_button",
       "value": "Jouer!"
+    },
+    {
+      "key": "next_map_button",
+      "value": "SUIVANT"
     }
   ]
 }

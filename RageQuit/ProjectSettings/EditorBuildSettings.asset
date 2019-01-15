@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/menu.unity
-    guid: 1665453b5913650498f8b04c0067d5a3
-  - enabled: 1
     path: Assets/Scenes/level1_mp.unity
     guid: 92126cab29ab15340b754144ece960c9
+  - enabled: 1
+    path: "Assets/Cinematique1/Cin\xE9matique1.unity"
+    guid: 3702dcab13a77ae4b992610b81b9cdc5
+  - enabled: 1
+    path: Assets/Cinematique 2/Boss Final Rochers.unity
+    guid: 8e61a0d6a5d3bef47964bdfcdc2c226a
+  - enabled: 1
+    path: Assets/Scenes/menu.unity
+    guid: 1665453b5913650498f8b04c0067d5a3
   - enabled: 1
     path: Assets/Scenes/level1.unity
     guid: 7e7fade851b5ff64497a2b35d3bcd244
@@ -23,4 +29,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Fabien 2/map3.unity
     guid: 4a1e7f2da352ea74f978bb7dfdd74034
+  - enabled: 1
+    path: Assets/Scenes/Levelmulti.unity
+    guid: 474c57eac29d445488b087db65ee4f29
+  - enabled: 1
+    path: Assets/Scenes/level5.unity
+    guid: a91b3efbef2ba2846a05f9cae02a97b8
+  - enabled: 1
+    path: Assets/Scenes/level6.unity
+    guid: 9e0a45e66cff2a341a77a9926900438b
+  - enabled: 1
+    path: Assets/Scenes/level7.unity
+    guid: 26fab23c1aaf3784ea2ff29f8544c4f7
+  - enabled: 1
+    path: Assets/Scenes/Boss Final.unity
+    guid: 96d8b3aa399a43a45b5854bd4e4c23f8
   m_configObjects: {}

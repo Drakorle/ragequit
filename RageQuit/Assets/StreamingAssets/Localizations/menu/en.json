@@ -16,7 +16,14 @@
       "key": "quit_button",
       "value": "QUIT"
     },
-    
+    {
+      "key": "main_menu_button",
+      "value": "MAIN MENU"
+    },
+    {
+      "key": "resume_button",
+      "value": "RESUME"
+    },
     {
       "key": "back_button",
       "value": "BACK"
@@ -155,6 +162,10 @@
     {
       "key": "play_button",
       "value": "Play!"
+    },
+    {
+      "key": "next_map_button",
+      "value": "NEXT MAP"
     }
   ]
 }
