@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour {
 
 	void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         if(instance == null)
         {
             instance = this;
@@ -26,7 +28,6 @@ public class AudioManager : MonoBehaviour {
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
             s.source.loop = s.loop;
 
         }   
@@ -56,6 +57,20 @@ public class AudioManager : MonoBehaviour {
 
         
 
+    }
+    public void Stop (string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound :" + name + "not found!");
+            return;
+        }
+        else
+        {
+            s.source.Stop();
+        }
     }
 	
 	

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class IslandDestroy : MonoBehaviour {
@@ -21,6 +22,7 @@ public class IslandDestroy : MonoBehaviour {
         {
             if(firstcall)
             {
+                FindObjectOfType<AudioManager>().Play("CannonFire");
                 step += 1;
                 firstcall = false;
             }
@@ -46,8 +48,7 @@ public class IslandDestroy : MonoBehaviour {
             }
             else if (step == 3)
             {
-                //fin de scène
-                //Load scène Boss Final Rochers
+                SceneManager.LoadScene("Boss Final Rochers");
             }
             fired = false;
             firstcall = true;

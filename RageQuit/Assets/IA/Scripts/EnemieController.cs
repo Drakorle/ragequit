@@ -26,9 +26,8 @@ public class EnemieController : MonoBehaviour {
         {
             Zoid.SetBool("ZoidAttack", true);
             agent.SetDestination( target.position);
-            if(distance <= agent.stoppingDistance)
+            if(distance <= agent.stoppingDistance + 1)
             {
-                Debug.LogWarning("ici");
                 Bumper.BumpNow = true;
                 Facetarget();
             }

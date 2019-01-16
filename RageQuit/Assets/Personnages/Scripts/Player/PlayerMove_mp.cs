@@ -16,6 +16,7 @@ public class PlayerMove_mp : NetworkBehaviour
     private GameObject TrailMP;
     public int DeathZonePosMP;
     public Camera camMP;
+    public Canvas HUD;
     public NetworkStartPosition[] spawnPointsMP = new NetworkStartPosition[2];
 
     //Basics
@@ -45,6 +46,12 @@ public class PlayerMove_mp : NetworkBehaviour
     private float horizMP = 0;
     private float runMP = 0;
 
+    //Sons
+    private bool RunSound = false;
+    private bool WalkSound = false;
+    private bool Done = false;
+
+
     // Use this for initialization
     void Awake()
     {
@@ -57,6 +64,7 @@ public class PlayerMove_mp : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
+            HUD.gameObject.SetActive(false);
             camMP.enabled = false;
             return;
             
@@ -73,6 +81,29 @@ public class PlayerMove_mp : NetworkBehaviour
     }
     void MovePlayerMP()
     {
+        if (runMP > 0 && !RunSound)
+        {
+            RunSound = true;
+            FindObjectOfType<AudioManager>().Play("Run");
+
+        }
+        if (runMP <= 0 || !CharControlMP.isGrounded)
+        {
+            FindObjectOfType<AudioManager>().Stop("Run");
+            RunSound = false;
+        }
+        if ((vertMP != 0 || horizMP != 0) && runMP == 0 && !WalkSound)
+        {
+            WalkSound = true;
+            FindObjectOfType<AudioManager>().Play("Walk");
+
+        }
+        if ((vertMP == 0 && horizMP == 0) || runMP != 0 || !CharControlMP.isGrounded)
+        {
+            FindObjectOfType<AudioManager>().Stop("Walk");
+            WalkSound = false;
+        }
+
         //Recupération des touches 
         //float run = Input.GetAxis("Run");
 
@@ -223,9 +254,9 @@ public class PlayerMove_mp : NetworkBehaviour
     {
         if (PlayerMP.transform.position.y < DeathZonePosMP)
         {
-            PlayerMP.transform.position = GameObject.FindGameObjectsWithTag("Respawn")[0].transform.position;
+            PlayerMP.transform.position = new Vector3(SpawnXMP, SpawnYMP, SpawnZMP);
             PickMoney.Hydro = 15;
-            GameObject[] gameObjectArrayMP = GameObject.FindGameObjectsWithTag("Respawn" );
+            GameObject[] gameObjectArrayMP = GameObject.FindGameObjectsWithTag("PickUpHydro");
 
             foreach (GameObject go in gameObjectArrayMP)
             {

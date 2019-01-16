@@ -508,13 +508,13 @@ GameObject:
   - component: {fileID: 33199096712044544}
   - component: {fileID: 136215512128081846}
   - component: {fileID: 23204388547080476}
-  - component: {fileID: 114602877604984282}
   - component: {fileID: 143052907446369114}
+  - component: {fileID: 114602877604984282}
   - component: {fileID: 114227212960727198}
-  - component: {fileID: 114661896469316220}
-  - component: {fileID: 114853614596823376}
   - component: {fileID: 95070678417866142}
+  - component: {fileID: 114661896469316220}
   - component: {fileID: 114233082283971234}
+  - component: {fileID: 114853614596823376}
   - component: {fileID: 114626039879379224}
   - component: {fileID: 114148579451618500}
   m_Layer: 9
@@ -2019,11 +2019,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581187565875124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517ebb7121a10a545b1a11e22bc14546, type: 3}
+  m_Script: {fileID: 11500000, guid: 181b566cc98ddeb47b26ca709cadc9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 114294609699290344}
-  StartHydro: 15
+  ScoreText: {fileID: 0}
+  StartHydro: 0
 --- !u!114 &114626039879379224
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -35,7 +35,8 @@ public class PickMoney : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             Score += 1;
-            
+            FindObjectOfType<AudioManager>().Play("PickUp");
+
 
         }
 

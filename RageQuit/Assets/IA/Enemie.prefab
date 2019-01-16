@@ -2017,7 +2017,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671365791066536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.24, y: 1, z: -9.70662}
+  m_LocalPosition: {x: 38.65, y: -36.23, z: -42.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4677186974720884}
@@ -2871,15 +2871,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1719421279620322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7dc995afad2509418e9a2d748f90565, type: 3}
+  m_Script: {fileID: 11500000, guid: c4956519c98ca2c419c37cbd40a2b28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CharControl: {fileID: 0}
   Player: {fileID: 0}
-  Monstre: {fileID: 4435197249859548}
-  bumpForce: 7
-  BurstBump: 7
-  BumpTimeEnd: 25
+  Monstre: {fileID: 4677186974720884}
+  bumpForce: 5
+  BurstBump: 10
+  BumpTimeEnd: 60
 --- !u!114 &114713181185185044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2934,7 +2934,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d9a85183c9f9be0428db460fd85c321e, type: 2}
+  - {fileID: 2100000, guid: 923a643cf82ab5244b2a1304ca9af925, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

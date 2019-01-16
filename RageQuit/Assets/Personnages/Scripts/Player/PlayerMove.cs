@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour {
     public Transform DJumpTrail;
     private GameObject Trail;
     public int DeathZonePos;
+    public int DeathZonePosMusic;
     public Camera cam;
 
     //Basics
@@ -43,6 +44,11 @@ public class PlayerMove : MonoBehaviour {
     private float horiz = 0;
     private float run = 0;
 
+    //Sons
+    private bool RunSound = false;
+    private bool WalkSound = false;
+    private bool Done = false;
+
     // Use this for initialization
     void Awake()
     {
@@ -68,7 +74,32 @@ public class PlayerMove : MonoBehaviour {
 
         GetAction(ref run, "SprintKey", 1000);
 
+        if(run > 0 && !RunSound)
+        {
+            RunSound = true;
+            FindObjectOfType<AudioManager>().Play("Run");
+            
+        }
+        if(run <= 0 || !CharControl.isGrounded ) 
+        {
+            FindObjectOfType<AudioManager>().Stop("Run");
+            RunSound = false;
+        }
+        if ((vert != 0 || horiz != 0)&& run == 0 && !WalkSound)
+        {
+            WalkSound = true;
+            FindObjectOfType<AudioManager>().Play("Walk");
+
+        }
+        if ((vert == 0 && horiz == 0) || run != 0 || !CharControl.isGrounded)
+        {
+            FindObjectOfType<AudioManager>().Stop("Walk");
+            WalkSound = false;
+        }
+
         GetAxis(ref horiz, "RightKey", "LeftKey", 3);
+
+
         GetAxis(ref vert, "ForwardKey", "BackKey", 3);
 
         //Déclaration des Vectors3
@@ -99,7 +130,7 @@ public class PlayerMove : MonoBehaviour {
             if (Input.GetKeyDown(MainMenu.GetKeyCode("JumpKey")))
             {
                 jumpVelocity = jumpforce;
-                //FindObjectOfType<AudioManager>().Play("Jump");
+                FindObjectOfType<AudioManager>().Play("Jump");
                 DJumpDone = false;
 
             }
@@ -114,7 +145,7 @@ public class PlayerMove : MonoBehaviour {
                     Vector3.zero,
                     Quaternion.identity);
                 Trail.transform.SetParent(GameObject.FindGameObjectWithTag("Trail").transform, false);
-
+                FindObjectOfType<AudioManager>().Play("DJump");
                 TrailExist = true;
 
                 jumpVelocity = jumpforce;
@@ -208,19 +239,27 @@ public class PlayerMove : MonoBehaviour {
     }
     void DeathZone()
     {
-        if (Player.transform.position.y < DeathZonePos)
+        if (Player.transform.position.y < DeathZonePosMusic)
         {
-            Player.transform.position = new Vector3(SpawnX,SpawnY,SpawnZ);
-            PickMoney.Hydro = 15;
-            GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("PickUpHydro");
-
-            foreach (GameObject go in gameObjectArray)
+            if (!Done)
             {
-                
-                Debug.LogWarning(go.name + " Activé !");
-                go.SetActive(true);
-                if (!go.transform.GetChild(0).gameObject.active)
-                    go.transform.GetChild(0).gameObject.SetActive(true);
+                FindObjectOfType<AudioManager>().Play("Death");
+                Done = true;
+            }
+            if (Player.transform.position.y < DeathZonePos)
+            {
+                Player.transform.position = new Vector3(SpawnX, SpawnY, SpawnZ);
+                PickMoney.Hydro = 15;
+                GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("PickUpHydro");
+
+                foreach (GameObject go in gameObjectArray)
+                {
+                    Done = false;
+                    Debug.LogWarning(go.name + " Activé !");
+                    go.SetActive(true);
+                    if (!go.transform.GetChild(0).gameObject.active)
+                        go.transform.GetChild(0).gameObject.SetActive(true);
+                }
             }
         }
 

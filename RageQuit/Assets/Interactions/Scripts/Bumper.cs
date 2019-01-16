@@ -64,7 +64,7 @@ public class Bumper : MonoBehaviour {
                  bumpZ * (BurstBump / BumpTime * bumpForce)
                 );
             CharControl.Move(moveDirUp * Time.deltaTime);
-            Debug.LogWarning((BurstBump / BumpTime * bumpForce));
+
 
         }
         BumpNow = BumpTime < BumpTimeEnd;

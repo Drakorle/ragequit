@@ -37,6 +37,8 @@ public class BoatAttack : MonoBehaviour
 
     void Fire()
     {
+        FindObjectOfType<AudioManager>().Play("CannonFire");
+
         var ball = (GameObject)Instantiate(
             ballPrefab,
             ballSpawn.position,

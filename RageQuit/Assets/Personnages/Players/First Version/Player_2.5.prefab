@@ -1897,7 +1897,8 @@ MonoBehaviour:
   anim: {fileID: 95671387828255776}
   SuperTrail: {fileID: 1314373399019798, guid: 5acbb268c305da040977ca5a6fe26f56, type: 2}
   DJumpTrail: {fileID: 4204579751967008}
-  DeathZonePos: -10
+  DeathZonePos: -60
+  DeathZonePosMusic: 0
   cam: {fileID: 20606234338472608}
   WalkSpeed: 5
   RunSpeed: 5
